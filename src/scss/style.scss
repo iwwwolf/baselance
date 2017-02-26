@@ -1,0 +1,384 @@
+$titleFont: 'Eczar', serif;
+
+*:focus {
+	outline: none !important;
+}
+* {
+	box-sizing: border-box;
+}
+html, body {
+	margin: 0;
+	height: 100%;
+	padding: 0;
+}
+body {
+	font: normal 16px/1.5 'Roboto', sans-serif;
+	color: #252029;
+	min-width: 320px;
+}
+img {
+	max-width: 100%;
+}
+
+$titleColor: #7402c4;
+$secondColor: #ff5f57;
+
+.container {
+	max-width: 1010px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+.content {
+	position: relative;
+	background-color: #fff;
+	&:before {
+		display: block;
+		width: 100%;
+		height: 210px;
+		background-color: #f7f8fa;
+		position: absolute;
+		left: 0;
+		top: 0;
+		content: "";
+	}
+	&:after {
+		display: table;
+		line-height: 0;
+		clear: both;
+		content: "";
+	}
+}
+
+// buttons
+.btn {
+	display: block;
+	width: 100%;
+	max-width: 320px;
+	margin: 0 auto;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	text-decoration: none;
+	font-size: 16px;
+	padding: 0;
+	position: relative;
+	span {
+		display: block;
+		position: relative;
+		padding: 18px 25px;
+		transition: all 300ms;
+		transform: translateX(0) translateY(0);
+		z-index: 1;
+	}
+	&:after {
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: "";
+		transition: all 300ms;
+		transform: translateX(0) translateY(0);
+	}
+	&--primary {
+		background-color: transparent;
+		color: $titleColor;
+		span {
+			background-color: #fff;
+			box-shadow: 1px 1px 1px $titleColor;
+		}
+		&:after {
+			background-color: #fff;
+		}
+	}
+	&--success {
+		background-color: transparent;
+		color: $secondColor;
+		span {
+			background-color: #fff;
+			box-shadow: 1px 1px 1px $secondColor;
+		}
+		&:after {
+			background-color: #fff;
+		}
+	}
+	&:focus {
+		span, &:after {
+			transform: translateX(0) translateY(0);
+		}
+	}
+	&:hover {
+		&:after {
+			transform: translateX(5px) translateY(5px);
+		}
+	}
+	&:active {
+		span {
+			transform: translateX(5px) translateY(5px);
+		}
+	}
+}
+
+
+header {
+	padding: 20px 0 65px;
+	background-color: #f7f8fa;
+	position: relative;
+	.container {
+		position: relative;
+	}
+}
+.head-img {
+	display: none;
+	//transition: all 400ms;
+}
+
+footer {
+	background-color: #f7f8fa;
+	color: #a39ea6;
+	line-height: 1.5;
+	padding: 11px 0 15px;
+	position: relative;
+	text-align: center;
+	a {
+		color: #a39ea6;
+		text-decoration: none;
+		transition: color 300ms;
+		&:hover, &:focus {
+			color: darken(#a39ea6, 10%);
+		}
+	}
+	.feedback {
+		margin-bottom: 12px;
+	}
+	.copyright {
+		margin-top: 12px;
+	}
+	.container {
+		max-width: 1210px;
+	}
+}
+
+.page-title {
+	font: bold 30px/1.24 $titleFont;
+	color: $titleColor;
+	margin-bottom: 20px;
+	&--white {
+		color: #fff;
+	}
+	&--fz24 {
+		font-size: 24px !important;
+	}
+}
+.descr-block {	
+	color: #fff;
+	position: relative;
+	text-align: center;
+	margin-bottom: 30px;
+	transform: translateY(-50px);
+}
+.descr-block__body {
+	background-color: $titleColor;
+	padding: 20px;
+}
+.descr-block__semicircle {
+	svg {
+		display: block;
+		width: 100%;
+		height: auto;
+		margin-bottom: -1px;
+	}
+	#letter-background {
+		fill: $titleColor;
+	}
+}
+.descr-block__text {
+	margin-bottom: 25px;
+	p {
+		margin: 0;
+	}
+}
+
+.add-frilance {
+	max-width: 720px;
+	text-align: center;
+	margin: 0 auto 84px;
+	.descr-block__text {
+		max-width: 594px;
+		margin: {
+			left: auto;
+			right: auto;
+		}
+	}
+}
+.add-frilance__link {
+	display: block;
+	width: 76px;
+	height: 76px;
+	margin: 0 auto 30px;
+	svg {
+		display: block;
+		width: inherit;
+		height: inherit;
+	}
+}
+.browsers-list {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	font-size: 14px;
+	color: #a39ea6;
+}
+.browsers-list__item {
+	margin-left: 56px;
+	&:first-child {
+		margin-left: 0;
+	}
+}
+.browsers-list__icon {
+	margin-bottom: 10px;
+	img {
+		display: block;
+		height: 40px;
+		width: auto;
+		margin: 0 auto;
+	}
+}
+
+.columns {
+	margin-bottom: 60px;
+}
+.columns__image {
+	display: none;
+}
+.columns__tags {
+	padding: 0;
+	margin: 0 0 0 -5px;
+	li {
+		display: inline-block;
+		margin-left: 5px;
+		margin-bottom: 10px;
+		vertical-align: top;
+		padding: 9px 20px 10px;
+		background-color: #f7f8fa;
+		border-radius: 100px;
+	}
+}
+
+.steps-list {
+	.page-title {
+		color: $secondColor;
+		margin-bottom: 5px;
+	}
+}
+.steps-list__item {
+	margin-bottom: 35px;
+}
+.steps-list__title {
+	font-size: 20px;
+	line-height: 1.25;
+	margin-bottom: 12px;
+}
+
+.subscribe {
+	background-color: $secondColor;
+	color: #fff;
+	text-align: center;
+	padding: 30px 45px;
+	margin-bottom: 80px;
+}
+.subscribe__form {
+	display: block;
+	max-width: 320px;
+	margin: 0 auto;
+	::-webkit-input-placeholder {color: rgba(255, 255, 255, 0.5);}
+	::-moz-placeholder          {color: rgba(255, 255, 255, 0.5);}/* Firefox 19+ */
+	:-moz-placeholder           {color: rgba(255, 255, 255, 0.5);}/* Firefox 18- */
+	:-ms-input-placeholder      {color: rgba(255, 255, 255, 0.5);}
+}
+.subscribe__input {
+	margin-bottom: 30px;
+	input {
+		width: 100%;
+		height: 48px;
+		background-color: transparent;
+		font-size: 16px;
+		line-height: 1.5;
+		border: none;
+		color: #fff;
+		border-bottom: 2px solid #fff;
+	}
+}
+
+.benefits {
+	padding: 0 0 0 35px;
+	margin: 0;
+	color: #a39ea6;
+	li {
+		display: block;
+		margin-bottom: 15px;
+	}
+}
+.benefits__check {
+	color: #252029;
+	position: relative;
+	&:before {
+		display: block;
+		width: 22px;
+		height: 17px;
+		background: url('../images/check.svg') 0 0 no-repeat;
+		background-size: 100% auto;
+		position: absolute;
+		top: 2px;
+		left: -35px;
+		content: "";
+	}
+}
+
+.social-parallax {
+	display: none;
+	.container {
+		position: relative;
+	}
+	.icon {
+		position: absolute;
+		z-index: 1;
+	}
+	.icon-vimeo {
+		left: -85px;
+		top: -130px;
+	}
+	.icon-twitter {
+		left: -165px;
+		top: -65px;
+	}
+	.icon-dribbble {
+		top: 80px;
+		left: -93px;
+	}
+	.icon-behanse {
+		top: 206px;
+		left: -152px;
+	}
+
+	.icon-linkedin {
+		top: -175px;
+		right: -87px;
+	}
+	.icon-soundcloud {
+		top: -31px;
+		right: -130px;
+	}
+	.icon-google {
+		top: 142px;
+		right: -72px;
+	}
+	.icon-facebook {
+		top: 172px;
+		right: -145px;
+	}
+}
+
+
+@import "media"

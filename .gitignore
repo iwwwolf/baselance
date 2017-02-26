@@ -1,0 +1,3 @@
+.gulp-scss-cache/*
+node_modules/*
+sequence.zip

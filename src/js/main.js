@@ -94,8 +94,8 @@ $(function(){
 			//=============
 
 			//============= sequence
-			if((scrollPos + winHeight) >= (targetPos + 200)){
-				animationPos = scrollPos - (targetPos + 200);
+			if((scrollPos + winHeight) >= (targetPos + 400)){
+				animationPos = scrollPos - (targetPos + 400);
 				// Which one should we show at this scroll point?
 				i = Math.floor((animationPos + winHeight) / (winHeight / totalImages));
 
@@ -108,4 +108,11 @@ $(function(){
 			//============= end sequence
 		});
 	}
+
+	$('#toSubscribe').on('click', function(e){
+		var target = $($(this).attr('href'));
+		var targetPos = target.offset().top;
+		//e.preventDefault();
+		$('html, body').animate({scrollTop: targetPos-50}, 600);
+	});
 });

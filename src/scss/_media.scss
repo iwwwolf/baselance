@@ -56,6 +56,7 @@
 			}
 		}
 		&--sort {
+			flex-direction: row;
 			margin-bottom: 152px;
 			align-items: flex-start;
 			.columns__text {
@@ -103,6 +104,13 @@
 			animation: sequence 5s steps(46) infinite;
 			img {
 				display: none;
+			}
+		}
+		&.stickergirl {
+			width: 460px;
+			img {
+				width: 100%;
+				height: auto;
 			}
 		}
 	}

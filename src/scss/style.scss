@@ -222,17 +222,22 @@ footer {
 }
 
 .columns {
-	margin-bottom: 60px;
-}
-.columns__image {
-	display: none;
-	&.stickergirl {
-		width: 460px;
-		img {
-			width: 100%;
-			height: auto;
+	margin-bottom: 100px;
+	&--sort {
+		display: flex;
+		flex-direction: column-reverse;
+		.columns__image {
+			margin-bottom: 0;
 		}
 	}
+	&--updating {
+		margin-bottom: 50px;
+	}
+}
+.columns__image {
+	//display: none;
+	margin-bottom: 30px;
+	text-align: center;
 }
 .social {
 	margin-left: -10px;

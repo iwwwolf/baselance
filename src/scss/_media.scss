@@ -49,6 +49,10 @@
 		& + .columns__image {
 			margin-left: 100px;
 		}
+		&--big {
+			min-width: 60%;
+			max-width: 60%;
+		}
 	}
 	.descr-block__text {
 		margin-bottom: 45px;

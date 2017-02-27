@@ -107,6 +107,37 @@ $(function(){
 			}
 			//============= end sequence
 		});
+	} else {
+		var $imgparallax = $('#headImg');
+		var scrollPos = viewport.scrollTop();
+
+		$('#socParallax').css({display: 'block'});
+
+		// image in header parallax on load
+		var coords = (scrollPos / $imgparallax.data('speed'));
+
+		$imgparallax.css({ 
+			'-webkit-transform':'translateY('+ -coords +'px)', 
+			'-moz-transform':'translateY('+ -coords +'px)', 
+			'-ms-transform':'translateY('+ -coords +'px)', 
+			'-o-transform':'translateY('+ -coords +'px)', 
+			'transform':'translateY('+ -coords +'px)' });
+
+		viewport.scroll(function() {
+
+			var scrollPos = viewport.scrollTop();
+
+			// image in header parallax on scroll
+			var coords = (scrollPos / $imgparallax.data('speed'));
+
+			$imgparallax.css({ 
+				'-webkit-transform':'translateY('+ -coords +'px)', 
+				'-moz-transform':'translateY('+ -coords +'px)', 
+				'-ms-transform':'translateY('+ -coords +'px)', 
+				'-o-transform':'translateY('+ -coords +'px)', 
+				'transform':'translateY('+ -coords +'px)' });
+			//=============
+		});
 	}
 
 	$('#toSubscribe').on('click', function(e){

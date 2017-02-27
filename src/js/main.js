@@ -18,7 +18,7 @@ $(function(){
 		// THE IMAGE NAMES BASED ON A GIVEN RANGE 
 		// THEN PUSHES THEM INTO THE ARRAY
 		for (i = 1; i <= $('#stickergirl').attr('data-images'); i++) {
-		    images.push('../images/stickergirl/' + i + '.jpg');
+		    images.push('/images/stickergirl/' + i + '.jpg');
 		}
 
 		// THIS TAKES EACH IMAGE NAME FROM THE ARRAY AND CREATES A CLUSTER OF

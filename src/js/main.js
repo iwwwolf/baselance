@@ -94,8 +94,8 @@ $(function(){
 			//=============
 
 			//============= sequence
-			if((scrollPos + winHeight) >= (targetPos + 300)){
-				animationPos = scrollPos - (targetPos + 300);
+			if((scrollPos + winHeight) >= (targetPos + 200)){
+				animationPos = scrollPos - (targetPos + 200);
 				// Which one should we show at this scroll point?
 				i = Math.floor((animationPos + winHeight) / (winHeight / totalImages));
 

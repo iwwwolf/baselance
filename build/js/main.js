@@ -14,23 +14,47 @@ $(function(){
 		// Array of images to swap between
 		var images = [];
 
-		// THIS LOOKS AT THE DATA ATTRIBUTES IN THE load element AND GENERATES 
-		// THE IMAGE NAMES BASED ON A GIVEN RANGE 
-		// THEN PUSHES THEM INTO THE ARRAY
-		for (i = 1; i <= $('#stickergirl').attr('data-images'); i++) {
-		    images.push('images/stickergirl/' + i + '.jpg');
-		}
+		//============= sequence
+		$('.js-sequence').each(function(){
 
-		// THIS TAKES EACH IMAGE NAME FROM THE ARRAY AND CREATES A CLUSTER OF
-		// PRELOADED HIDDEN IMAGES ON THE PAGE USING JQUERY
-		$(images).each(function () {
-		    $('<img />')[0].src = this;
+			var targetId = $(this).attr('id');
+
+			// THIS LOOKS AT THE DATA ATTRIBUTES IN THE load element AND GENERATES 
+			// THE IMAGE NAMES BASED ON A GIVEN RANGE 
+			// THEN PUSHES THEM INTO THE ARRAY
+			for (i = 1; i <= $(this).attr('data-images'); i++) {
+			    images.push('images/' + targetId + '/' + i + '.jpg');
+			}
+
+			// THIS TAKES EACH IMAGE NAME FROM THE ARRAY AND CREATES A CLUSTER OF
+			// PRELOADED HIDDEN IMAGES ON THE PAGE USING JQUERY
+			$(images).each(function () {
+			    $('<img />')[0].src = this;
+			});
+
+			var totalImages = images.length;
+			var target = $(this);
+			var targetPos = target.offset().top;
+			var animationPos;
+
+			viewport.on('scroll', function(){
+				
+				if((scrollPos + winHeight) >= (targetPos + 350)){
+					animationPos = scrollPos - (targetPos + 350);
+					// Which one should we show at this scroll point?
+					i = Math.floor((animationPos + winHeight) / (winHeight / totalImages));
+
+
+					// Show the corresponding image from the array
+					if(i <= totalImages){
+						$(this).find('img').attr('src', images[i]);
+					}
+				}
+			});
 		});
+		//============= end sequence
 
-		var totalImages = images.length;
-		var target = $('#stickergirl');
-		var targetPos = target.offset().top;
-		var animationPos;
+
 
 		//========= end variables
 
@@ -93,19 +117,7 @@ $(function(){
 			});
 			//=============
 
-			//============= sequence
-			if((scrollPos + winHeight) >= (targetPos + 350)){
-				animationPos = scrollPos - (targetPos + 350);
-				// Which one should we show at this scroll point?
-				i = Math.floor((animationPos + winHeight) / (winHeight / totalImages));
-
-
-				// Show the corresponding image from the array
-				if(i <= totalImages){
-					$('#stickergirl img').attr('src', images[i]);
-				}
-			}
-			//============= end sequence
+			
 		});
 	} else {
 		var $imgparallax = $('#headImg');

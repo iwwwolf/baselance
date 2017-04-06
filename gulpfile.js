@@ -65,7 +65,7 @@ gulp.task('html:build', function () {
 /* собрать скрипты */
 gulp.task('js:build', function () {
     gulp.src(path.src.js)
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(concat('main.min.js'))
         .pipe(gulp.dest(path.build.js))
 });

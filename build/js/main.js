@@ -10,19 +10,21 @@ $(function(){
 
 		//============== variables for sequence
 
-		// THIS SETS UP THE INITIAL ARRAY VARIABLE
-		// Array of images to swap between
-		var images = [];
 
 		//============= sequence
-		$('.js-sequence').each(function(){
-
-			var targetId = $(this).attr('id');
+		$('.js-sequence').each(function(index, el){
+			// THIS SETS UP THE INITIAL ARRAY VARIABLE
+			// Array of images to swap between
+			var images = [];
+			var totalImages = 0;
+			var target = $(el);
+			var targetId = $(el).attr('id');
+			var i = 0;
 
 			// THIS LOOKS AT THE DATA ATTRIBUTES IN THE load element AND GENERATES 
 			// THE IMAGE NAMES BASED ON A GIVEN RANGE 
 			// THEN PUSHES THEM INTO THE ARRAY
-			for (i = 1; i <= $(this).attr('data-images'); i++) {
+			for (i = 1; i <= $(el).attr('data-images'); i++) {
 			    images.push('images/' + targetId + '/' + i + '.jpg');
 			}
 
@@ -32,12 +34,14 @@ $(function(){
 			    $('<img />')[0].src = this;
 			});
 
-			var totalImages = images.length;
-			var target = $(this);
+			totalImages = images.length;
 			var targetPos = target.offset().top;
 			var animationPos;
 
+
 			viewport.on('scroll', function(){
+
+				var scrollPos = viewport.scrollTop();
 				
 				if((scrollPos + winHeight) >= (targetPos + 350)){
 					animationPos = scrollPos - (targetPos + 350);
@@ -47,7 +51,8 @@ $(function(){
 
 					// Show the corresponding image from the array
 					if(i <= totalImages){
-						$(this).find('img').attr('src', images[i]);
+						console.log(images[i]);
+						$(el).find('img').attr('src', images[i]);
 					}
 				}
 			});

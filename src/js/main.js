@@ -10,27 +10,56 @@ $(function(){
 
 		//============== variables for sequence
 
-		// THIS SETS UP THE INITIAL ARRAY VARIABLE
-		// Array of images to swap between
-		var images = [];
 
-		// THIS LOOKS AT THE DATA ATTRIBUTES IN THE load element AND GENERATES 
-		// THE IMAGE NAMES BASED ON A GIVEN RANGE 
-		// THEN PUSHES THEM INTO THE ARRAY
-		for (i = 1; i <= $('#stickergirl').attr('data-images'); i++) {
-		    images.push('images/stickergirl/' + i + '.jpg');
-		}
+		//============= sequence
+		$('.js-sequence').each(function(index, el){
+			// THIS SETS UP THE INITIAL ARRAY VARIABLE
+			// Array of images to swap between
+			var images = [];
+			var totalImages = 0;
+			var target = $(el);
+			var targetId = $(el).attr('id');
+			var i = 0;
 
-		// THIS TAKES EACH IMAGE NAME FROM THE ARRAY AND CREATES A CLUSTER OF
-		// PRELOADED HIDDEN IMAGES ON THE PAGE USING JQUERY
-		$(images).each(function () {
-		    $('<img />')[0].src = this;
+			// THIS LOOKS AT THE DATA ATTRIBUTES IN THE load element AND GENERATES 
+			// THE IMAGE NAMES BASED ON A GIVEN RANGE 
+			// THEN PUSHES THEM INTO THE ARRAY
+			for (i = 1; i <= $(el).attr('data-images'); i++) {
+			    images.push('images/' + targetId + '/' + i + '.jpg');
+			}
+
+			// THIS TAKES EACH IMAGE NAME FROM THE ARRAY AND CREATES A CLUSTER OF
+			// PRELOADED HIDDEN IMAGES ON THE PAGE USING JQUERY
+			$(images).each(function () {
+			    $('<img />')[0].src = this;
+			});
+
+			totalImages = images.length;
+			var targetPos = target.offset().top;
+			var animationPos;
+
+
+			viewport.on('scroll', function(){
+
+				var scrollPos = viewport.scrollTop();
+				
+				if((scrollPos + winHeight) >= (targetPos + 350)){
+					animationPos = scrollPos - (targetPos + 350);
+					// Which one should we show at this scroll point?
+					i = Math.floor((animationPos + winHeight) / (winHeight / totalImages));
+
+
+					// Show the corresponding image from the array
+					if(i <= totalImages){
+						console.log(images[i]);
+						$(el).find('img').attr('src', images[i]);
+					}
+				}
+			});
 		});
+		//============= end sequence
 
-		var totalImages = images.length;
-		var target = $('#stickergirl');
-		var targetPos = target.offset().top;
-		var animationPos;
+
 
 		//========= end variables
 
@@ -93,19 +122,7 @@ $(function(){
 			});
 			//=============
 
-			//============= sequence
-			if((scrollPos + winHeight) >= (targetPos + 350)){
-				animationPos = scrollPos - (targetPos + 350);
-				// Which one should we show at this scroll point?
-				i = Math.floor((animationPos + winHeight) / (winHeight / totalImages));
-
-
-				// Show the corresponding image from the array
-				if(i <= totalImages){
-					$('#stickergirl img').attr('src', images[i]);
-				}
-			}
-			//============= end sequence
+			
 		});
 	} else {
 		var $imgparallax = $('#headImg');

@@ -1,12 +1,30 @@
 @media (min-width: 700px) {
 	footer {
 		text-align: left;
+		font-size: 14px;
+		line-height: 1.43;
+		padding: 25px 0 16px;
 		.container {
 			display: flex;
 			justify-content: space-between;
+			align-items: flex-end;
 		}
 		.feedback, .copyright {
 			margin: 0;
+		}
+		.footer__center {
+			text-align: center;
+			color: #252029;
+			a {
+				color: #252029;
+				&:hover {
+					color: $titleColor;
+				}
+			}
+			.help-text {
+				color: #a39ea6;
+				margin-bottom: 15px;
+			}
 		}
 	}
 }

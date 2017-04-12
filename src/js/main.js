@@ -8,9 +8,6 @@ $(function(){
 
 	if(!mobile) {
 
-		//============== variables for sequence
-
-
 		//============= sequence
 		$('.js-sequence').each(function(index, el){
 			// THIS SETS UP THE INITIAL ARRAY VARIABLE
@@ -51,7 +48,6 @@ $(function(){
 
 					// Show the corresponding image from the array
 					if(i <= totalImages){
-						console.log(images[i]);
 						$(el).find('img').attr('src', images[i]);
 					}
 				}
@@ -61,10 +57,15 @@ $(function(){
 
 
 
-		//========= end variables
 
 		var $imgparallax = $('#headImg');
 		var scrollPos = viewport.scrollTop();
+
+		var table = $('#tableImage');
+		var tableHeight = table.height();
+		var tablePos = table.offset().top;
+		var leftLine = table.find('.left-line');
+		var rightLine = table.find('.right-line');
 
 		$('#socParallax').css({display: 'block'});
 
@@ -122,7 +123,11 @@ $(function(){
 			});
 			//=============
 
-			
+			if((scrollPos + winHeight) >= (tablePos + 100)){
+				i = Math.floor((scrollPos - tablePos + tableHeight));
+				leftLine.css({height : i})
+				rightLine.css({height : i})
+			}
 		});
 	} else {
 		var $imgparallax = $('#headImg');
@@ -155,6 +160,7 @@ $(function(){
 				'transform':'translateY('+ -coords +'px)' });
 			//=============
 		});
+		$('#tableImage img').attr('src', 'images/img-2.jpg');
 	}
 
 	$('#toSubscribe').on('click', function(e){

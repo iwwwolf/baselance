@@ -45,6 +45,7 @@
 		padding: 29px 90px 60px;
 	}
 	.add-frilance {
+		margin-bottom: 89px;
 		.descr-block__text {
 			margin-bottom: 52px;
 		}
@@ -174,16 +175,6 @@
 		display: block;
 		top: 191px;
 	}
-	/* .columns__image {
-		& + .columns__text {
-			margin-left: 160px;
-		}
-	}
-	.columns__text {
-		& + .columns__image {
-			margin-left: 160px;
-		}
-	} */
 }
 
 @media(min-width: 1300px) {

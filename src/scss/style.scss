@@ -178,7 +178,7 @@ footer {
 .add-frilance {
 	max-width: 720px;
 	text-align: center;
-	margin: 0 auto 84px;
+	margin: 0 auto 0;
 	.descr-block__text {
 		max-width: 594px;
 		margin: {
@@ -333,6 +333,29 @@ footer {
 	}
 }
 
+.table-image {
+	position: relative;
+	.left-line, .right-line {
+		display: block;
+		width: 3px;
+		height: 0;
+		min-height: 0;
+		max-height: 495px;
+		background: #f47059;
+		position: absolute;
+		top: -10px;
+		transform-origin: 0 0;
+	}
+	.left-line {
+		right: -5px;
+		transform: rotate(34deg);
+	}
+	.right-line {
+		left: -5px;
+		transform: rotate(-34deg);
+	}
+}
+
 .social-parallax {
 	display: none;
 	.container {
@@ -374,6 +397,13 @@ footer {
 	.icon-facebook {
 		top: 172px;
 		right: -145px;
+	}
+}
+
+.step-animation {
+	img {
+		max-width: 100%;
+		width: 370px;
 	}
 }
 

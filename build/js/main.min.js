@@ -123,8 +123,8 @@ $(function(){
 			});
 			//=============
 
-			if((scrollPos + winHeight) >= (tablePos + 100)){
-				i = Math.floor((scrollPos - tablePos + tableHeight));
+			if((scrollPos + winHeight) >= tablePos){
+				i = Math.floor((scrollPos - tablePos + tableHeight) + 200);
 				leftLine.css({height : i})
 				rightLine.css({height : i})
 			}

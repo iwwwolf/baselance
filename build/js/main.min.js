@@ -161,6 +161,15 @@ $(function(){
 			//=============
 		});
 		$('#tableImage img').attr('src', 'images/img-2.jpg');
+
+		$('.js-sequence').each(function(index, el){
+
+			var target = $(el);
+			var targetId = $(el).attr('id');
+
+			target.find('img').attr('src', 'images/' + targetId + '/' + $(el).attr('data-images') + '.jpg')
+
+		});
 	}
 
 	$('#toSubscribe').on('click', function(e){
